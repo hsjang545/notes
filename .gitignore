@@ -1,0 +1,38 @@
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# RubyGems
+*.gem
+
+# NPM dependencies
+node_modules
+package-lock.json
+
+# IDE configurations
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+_sass/vendors
+assets/js/dist
+
+# Hidden system files
+*~
+.DS_Store
+Thumbs.db
+
+# 비공개 금지어 목록(로컬 전용, 저장소에 올리지 않는다)
+.private/
+
+# 검토 전 초안은 공개 저장소에 올리지 않는다. 검토 후 _posts로 옮겨 게시한다.
+_drafts/

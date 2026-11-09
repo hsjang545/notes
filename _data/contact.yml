@@ -1,0 +1,12 @@
+# 사이드바 아래쪽 연락 아이콘.
+
+- type: github
+  icon: "fab fa-github"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/hyeonsoo-jang-65b38920a/"
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true

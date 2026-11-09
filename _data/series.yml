@@ -1,0 +1,16 @@
+# 시리즈 탭에 나오는 파트 순서와 설명. key는 글 front matter의 series 값이다.
+- key: sensor
+  title: 1. 센서
+  summary: 카메라, 레이더, 라이다, IMU, GNSS의 원리와 유형, 데이터의 성질.
+- key: comm
+  title: 2. 통신 인터페이스와 프로토콜
+  summary: CAN·CAN FD, 차량 이더넷, 카메라 링크, 시리얼, ROS 2와 DDS.
+- key: sync
+  title: 3. 시간 동기화
+  summary: NTP, PTP, GNSS+PPS의 원리와 우분투 구현, 점검 코드, 방법별 비교.
+- key: calib
+  title: 4. 센서 캘리브레이션
+  summary: 센서별 단독 캘리브레이션과 이종 센서 간 외부 캘리브레이션, 검증.
+- key: daq
+  title: 5. 실차 데이터 취득 파이프라인
+  summary: 여러 컴퓨터와 센서로 실차 데이터를 녹화하고 점검하고 추출하는 과정.
