@@ -44,4 +44,9 @@ if grep -rniE -f "$patterns_file" --include='*.md' --include='*.yml' --include='
   echo "공개 금지어가 발견됐다. 위 줄을 고친 뒤 다시 실행한다." >&2
   exit 1
 fi
+# 게시 글에는 HTML 주석이 남으면 안 된다. 초안의 출처·확인 필요·경험 자리 주석은 페이지 소스에 그대로 나간다.
+if [[ -d _posts ]] && grep -rln --include='*.md' -e '<!--' _posts; then
+  echo "게시 글(_posts)에 HTML 주석이 남아 있다. 출처·확인 필요·경험 주석을 지운 뒤 다시 실행한다." >&2
+  exit 1
+fi
 echo "공개 금지어 검사 통과"

@@ -63,3 +63,18 @@ mermaid: true   # 도식이 있을 때만
 ## 분량
 
 - 본문 4,000~9,000자(한글 기준)를 기본으로 하고, 구현과 점검을 다루는 글은 더 길어도 된다. 개념만 있는 짧은 글은 쓰지 않는다.
+
+## 그림
+
+- 구조·흐름·순서는 mermaid 코드 블록으로 그린다(`mermaid: true`).
+- 수치·기하·파형·그래프는 matplotlib 스크립트로 SVG를 만든다.
+  - 스크립트: `tools/figures/<글 파일명>.py` (예: `tools/figures/sync-00-why.py`). 맨 위에 `sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))` 후 `from _style import setup, save, COLORS, GRAY`.
+  - 출력: `save(fig, "<글 파일명>", "<그림 이름>")` → `assets/img/<글 파일명>/<그림 이름>.svg`. 폴더 이름을 `_`로 시작하지 않는다(Jekyll이 무시함).
+  - 실행: `bash tools/figures/build_all.sh <글 파일명>` (파이썬: `%LOCALAPPDATA%\hsjang545-notes-venv`, numpy·scipy·matplotlib).
+  - 글자는 한국어, 흰 배경, 파일 하나 300 KB 이하. 남의 그림을 베끼지 않고 직접 그린다.
+- 본문 삽입:
+
+```markdown
+![FMCW 처프와 비트 주파수](/assets/img/sensor-03-radar-fmcw/chirp-beat.svg){: width="720" }
+_그림 1. 송신 처프와 수신 처프의 주파수 차이가 비트 주파수가 된다._
+```
