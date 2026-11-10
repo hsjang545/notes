@@ -27,8 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 한글 글꼴
-        run: sudo apt-get update -q && sudo apt-get install -y -q fonts-nanum && fc-cache -f
+      - name: 한글 글꼴, open3d 실행 라이브러리
+        run: sudo apt-get update -q && sudo apt-get install -y -q fonts-nanum libegl1 libgl1 libgomp1 && fc-cache -f
 
       - uses: actions/setup-python@v5
         with:
