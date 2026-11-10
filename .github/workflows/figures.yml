@@ -34,9 +34,10 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: tools/figures/requirements.txt
 
       - name: 파이썬 패키지
-        run: pip install numpy scipy matplotlib opencv-python-headless open3d
+        run: pip install -r tools/figures/requirements.txt
 
       - name: 그림 생성
         env:

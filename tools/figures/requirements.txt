@@ -1,0 +1,6 @@
+# 그림 생성 스크립트(tools/figures/*.py) 의존성. .github/workflows/figures.yml이 설치한다.
+numpy
+scipy
+matplotlib
+opencv-python-headless
+open3d
