@@ -1,6 +1,6 @@
 # 글 작성 규칙
 
-이 저장소의 모든 글 초안이 따르는 규칙이다. 글을 쓰는 사람(사람이든 에이전트든)은 쓰기 전에 이 파일과 `curriculum.md`를 읽는다.
+이 저장소의 모든 글 초안이 따르는 규칙이다. 글을 쓰는 사람(사람이든 에이전트든)은 쓰기 전에 이 파일과 목차(비공개 저장소 `hsjang545/notes-drafts`의 `curriculum.md`)를 읽는다.
 
 ## 독자와 목소리
 
@@ -32,7 +32,7 @@
 
 ## 형식 (Jekyll Chirpy)
 
-- 파일: `_drafts/<접두사>-<두 자리 번호>-<영문-슬러그>.md`. 예: `_drafts/sync-04-linuxptp-ubuntu.md`. 게시할 때 `_posts/YYYY-MM-DD-<같은 슬러그>.md`로 옮긴다.
+- 파일: 초안은 비공개 저장소 `hsjang545/notes-drafts`의 `_drafts/<접두사>-<두 자리 번호>-<영문-슬러그>.md`(예: `sync-04-linuxptp-ubuntu.md`)에 쓰고, 게시할 때 이 저장소의 `_posts/YYYY-MM-DD-<같은 슬러그>.md`로 옮긴다.
 - 앞부분(front matter):
 
 ```yaml
@@ -70,7 +70,7 @@ mermaid: true   # 도식이 있을 때만
 - 수치·기하·파형·그래프는 matplotlib 스크립트로 SVG를 만든다.
   - 스크립트: `tools/figures/<글 파일명>.py` (예: `tools/figures/sync-00-why.py`). 맨 위에 `sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))` 후 `from _style import setup, save, COLORS, GRAY`.
   - 출력: `save(fig, "<글 파일명>", "<그림 이름>")` → `assets/img/<글 파일명>/<그림 이름>.svg`. 폴더 이름을 `_`로 시작하지 않는다(Jekyll이 무시함).
-  - 실행: `bash tools/figures/build_all.sh <글 파일명>` (파이썬: `%LOCALAPPDATA%\hsjang545-notes-venv`, numpy·scipy·matplotlib).
+  - 실행: 스크립트를 커밋하면 GitHub Actions(`그림 생성`)가 SVG를 다시 만들어 커밋한다. 수동 실행은 Actions 탭 → `그림 생성` → Run workflow.
   - 글자는 한국어, 흰 배경, 파일 하나 300 KB 이하. 남의 그림을 베끼지 않고 직접 그린다.
 - 본문 삽입:
 

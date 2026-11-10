@@ -2,10 +2,10 @@
 #
 # 공개 금지어 검사. 글과 설정에 비공개 정보가 들어가면 실패한다.
 # 금지어 목록 자체도 비공개이므로 저장소에 두지 않는다.
-#   로컬: .private/forbidden.txt (한 줄에 정규식 하나, # 주석 가능)
+#   로컬: .private/forbidden.txt (한 줄에 정규식 하나, # 주석 가능). 원본은 비공개 저장소 hsjang545/notes-drafts의 forbidden.txt
 #   CI:   GitHub Actions secret FORBIDDEN_PATTERNS (같은 형식)
 #
-# 사용: bash tools/check-private.sh [검사할 경로...]   (기본: _posts _tabs _data _config.yml, 있으면 _drafts)
+# 사용: bash tools/check-private.sh [검사할 경로...]   (기본: _posts _tabs _data _config.yml docs README.md, 있으면 _drafts)
 
 set -euo pipefail
 
@@ -36,9 +36,14 @@ sed -i -e 's/[[:space:]]*#.*$//' -e '/^[[:space:]]*$/d' "$patterns_file"
 if [[ $# -gt 0 ]]; then
   targets=("$@")
 else
-  targets=(_posts _tabs _data _config.yml)
+  targets=(_posts _tabs _data _config.yml docs README.md)
   [[ -d _drafts ]] && targets+=(_drafts)
 fi
+
+# 아직 없는 경로(글이 하나도 없을 때의 _posts 등)는 뺀다.
+existing=()
+for t in "${targets[@]}"; do [[ -e "$t" ]] && existing+=("$t"); done
+targets=("${existing[@]}")
 
 if grep -rniE -f "$patterns_file" --include='*.md' --include='*.yml' --include='*.yaml' --include='*.html' "${targets[@]}"; then
   echo "공개 금지어가 발견됐다. 위 줄을 고친 뒤 다시 실행한다." >&2
