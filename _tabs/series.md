@@ -5,7 +5,7 @@ icon: fas fa-list-ol
 order: 1
 ---
 
-센서에서 데이터 저장까지 센서 시스템을 만드는 순서대로 다섯 파트, 그리고 실제로 쓰는 장비 파트로 묶었습니다.
+센서에서 데이터 저장까지 센서 시스템을 만드는 순서대로 다섯 파트로 묶고, 실제로 쓰는 장비와 법규·표준·NCAP을 따로 묶었습니다.
 
 {% assign parts = site.data.series %}
 {% for part in parts %}

@@ -17,3 +17,6 @@
 - key: equip
   title: 6. 장비
   summary: INS, 레이더, CAN 인터페이스와 분석 SW, 범용 DAQ, 카메라 그래버, 시험 타깃 같은 상용 장비의 구성과 설정, 데이터 형식.
+- key: reg
+  title: 7. 자동차 법규·표준·NCAP
+  summary: UN 규정·국내 안전기준·FMVSS, ISO 26262·SOTIF·사이버보안 표준, Euro NCAP·KNCAP·C-NCAP 평가와 시험 실무.
